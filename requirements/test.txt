@@ -1,0 +1,10 @@
+coverage>=4.5.1
+environs>=5.2.1
+flake8>=3.5.0
+m2r>=0.1.15
+pre-commit>=1.17.0
+pytest-cov>=2.7.1
+pytest>=4.6
+tox>=3.5.2
+twine>=1.12.1
+wheel>=0.32.1
