@@ -1,6 +1,4 @@
-============
-Python Rules
-============
+from rules import expressions, parser
 
 context1 = {
     "price": {
@@ -17,17 +15,6 @@ context2 = {
     },
     "name": "cyanic ltd"
 }
-
-
-from rules import expressions
-r = expressions.ContextReference("price.value")
-c = expressions.Constant(1.25)
-o = expressions.Operator("*", r, c)
-assert str(o) == "price.value * 1.25"
-
-assert o(context) == 4.3125
-
-assert o(context2) == 56.25
 
 expr = {
     "type": "operator",
@@ -51,21 +38,18 @@ expr_json = '''{
     "right_side": 1.25
 }'''
 
-from rules import parser
 func1 = parser.parse(expr)
 func2 = parser.parse(expr_json)
 
 assert str(func1) == str(func2) == "price.value * 1.25"
 assert func1(context1) == func2(context1) == 4.3125
-
 assert func1(context2) == func2(context2) == 56.25
 
-Features
---------
+r = expressions.ContextReference("price.value")
+c = expressions.Constant(1.25)
+o = expressions.Operator("*", r, c)
+assert str(o) == "price.value * 1.25"
 
-* TODO
+assert o(context1) == 4.3125
 
-Getting Started
----------------
-
-Read the ``CONTRIBUTING.rst`` docs to get things set up.
+assert o(context2) == 56.25
