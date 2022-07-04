@@ -1,20 +1,8 @@
 from rules import expressions, parser
 
-context1 = {
-    "price": {
-        "value": 3.45,
-        "unit": "USD"
-    },
-    "name": "foobar inc"
-}
+context1 = {"price": {"value": 3.45, "unit": "USD"}, "name": "foobar inc"}
 
-context2 = {
-    "price": {
-        "value": 45.00,
-        "unit": "USD"
-    },
-    "name": "cyanic ltd"
-}
+context2 = {"price": {"value": 45.00, "unit": "USD"}, "name": "cyanic ltd"}
 
 expr = {
     "type": "operator",
@@ -24,10 +12,10 @@ expr = {
         "name": "price.value",
         "default": None,
     },
-    "right_side": 1.25
+    "right_side": 1.25,
 }
 
-expr_json = '''{
+expr_json = """{
     "type": "operator",
     "operator": "*",
     "left_side": {
@@ -36,7 +24,7 @@ expr_json = '''{
         "default": null
     },
     "right_side": 1.25
-}'''
+}"""
 
 func1 = parser.parse(expr)
 func2 = parser.parse(expr_json)

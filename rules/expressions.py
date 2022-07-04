@@ -8,7 +8,6 @@ class OperatorError(Exception):
 
 
 class ExpressionObject(ABC):
-
     @abstractmethod
     def __str__(self) -> str:
         """
@@ -98,25 +97,25 @@ class ContextReference(ExpressionObject):
 
 class Operator(ExpressionObject):
     operator_map = {
-        '+': operator.add,
-        '-': operator.sub,
-        '*': operator.mul,
-        '/': operator.floordiv,
-        '^': operator.pow,
+        "+": operator.add,
+        "-": operator.sub,
+        "*": operator.mul,
+        "/": operator.floordiv,
+        "^": operator.pow,
         #
-        '%': operator.mod,
+        "%": operator.mod,
         #
-        '&': operator.and_,
-        '|': operator.or_,
+        "&": operator.and_,
+        "|": operator.or_,
         #
-        '==': operator.eq,
-        '!=': operator.ne,
-        '>': operator.gt,
-        '>=': operator.ge,
-        '<': operator.lt,
-        '<=': operator.le,
+        "==": operator.eq,
+        "!=": operator.ne,
+        ">": operator.gt,
+        ">=": operator.ge,
+        "<": operator.lt,
+        "<=": operator.le,
         #
-        'in': operator.contains,
+        "in": operator.contains,
     }
 
     def __init__(self, opr, left_side, right_side):
